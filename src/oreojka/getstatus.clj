@@ -45,7 +45,7 @@
   [config scan-result]
   (->> scan-result
        (map #(hash-map :name (format "%s (%s)" (first %) (clojure.string/join #":" (get (:servers config) (first %))))
-                       :value (second %)))
+                       :value (format "Players Online: %s" (second %))))
        (into [])))
 
 (defn -main
