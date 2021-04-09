@@ -38,7 +38,7 @@
   [hosts]
   (doall (map #(vector (key %)
                        (try (-> % val get-server-status get-player-count)
-                            (catch Exception e e)))
+                            (catch Exception e :error)))
               hosts)))
 
 (defn get-message-embed-fields
